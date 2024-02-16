@@ -1,0 +1,37 @@
+.table-container {
+  margin: 5px auto;
+  /*margin-bottom: 200px;*/
+  width: 50%; /* Set a width for the container */
+  text-align: center;
+  justify-content: left;
+
+}
+th {
+  background-color: blueviolet; /* background color */
+  color: yellowgreen; /* text color */
+  font-weight: bold; /* make text bold */
+  padding: 8px; /* padding around content */
+  border: 1px solid #dddddd; /* border */
+}
+table {
+  width: 0%; /* or specify a specific width */
+  /*border-collapse: collapse; !* collapse borders into a single border *!*/
+  border: 1px solid #dddddd;
+  justify-content: right; /* border color and width */
+}
+td {
+  padding: 8px; /* padding around content */
+  border: 1px solid #dddddd; /* border */
+}
+tr:nth-child(even) {
+  background-color: greenyellow; /* background color for even rows */
+}
+tr:nth-child(odd) {
+  background-color: darkgrey; /* background color for even rows */
+}
+tr:hover {
+  background-color: darkgreen; /* background color on hover */
+}
+table {
+  border: none;
+}

@@ -1,0 +1,28 @@
+<div class="table-container">
+  <table>
+      <thead>
+        <tr>
+          <th>Owner Id</th>
+          <th>Owner Name</th>
+          <th>Property Id</th>
+          <th>Mobile Number</th>
+          <th>Create</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let owner of filteredOwnersData">
+          <td>{{ owner.ownerId }}</td>
+          <td>{{ owner.ownerName }}</td>
+          <td>{{ owner.propertyId }}</td>
+          <td>{{ owner.mobileNumber }}</td>
+          <td><a routerLink="/create">{{ owner.create }}</a> </td>
+      
+        </tr>
+      
+      </tbody>
+      <tbody>
+    </table>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
+</div>
