@@ -22,7 +22,7 @@ interface UploadedFile {
 
 @Component({
   selector: 'app-update',
-  templateUrl:'./update.component.html',
+  templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
@@ -45,17 +45,17 @@ export class UpdateComponent implements OnInit {
   ngOnInit() {
     // Fetch owner data or set default values
     this.ownerData = {
-      ownerName: 'John Doe',
-      ownerId: 'ABC123',
-      propertyLocation: '123 Main Street',
-      createdBy: 'Jane Doe',
+      ownerName: '',
+      ownerId: '',
+      propertyLocation: '',
+      createdBy: '',
       createdDate: new Date(),
-      assignedTo: 'Bob Smith',
+      assignedTo: '',
       description: '',
-      status: 'New'
+      status: ''
     };
     this.route.params.subscribe(params => {
-      const ticketId = +params['id']; // Access the ticket ID parameter from the URL
+      const ticketId = +params['ticketId']; // Access the ticket ID parameter from the URL
       console.log('Ticket ID:', ticketId);
       // Fetch ticket details or perform actions based on ticket ID
     });

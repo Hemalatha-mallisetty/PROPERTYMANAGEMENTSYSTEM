@@ -1,31 +1,62 @@
 import { Component, OnInit } from '@angular/core';
+import { TicketsService } from '../tickets.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-tickets',
-  templateUrl:'./search-tickets.component.html',
+  templateUrl: './search-tickets.component.html',
   styleUrls: ['./search-tickets.component.css'],
 })
 export class SearchTicketsComponent implements OnInit {
-  tickets: any[] = []; // Option 1: Initialize the property inline
+  tickets: any[] = [];
+  searchText: string = '';
+  filteredTickets: any[] = [];
 
-  constructor() { }
+  constructor(private ticketsService: TicketsService, private router: Router) {}
 
   ngOnInit(): void {
-    // Initialize or fetch tickets here
-    this.tickets = [
-      { id: 1, createdBy: 'John Doe', createdDateTime: '2024-02-07', daysToClose: 5 },
-      { id: 1, createdBy: 'John Doe', createdDateTime: '2024-02-07', daysToClose: 5 },
-      { id: 1, createdBy: 'John Doe', createdDateTime: '2024-02-07', daysToClose: 5 },
-      { id: 1, createdBy: 'John Doe', createdDateTime: '2024-02-07', daysToClose: 5 },
-      { id: 1, createdBy: 'John Doe', createdDateTime: '2024-02-07', daysToClose: 5 }
-    ];
+    this.searchTickets('');
+  }
+
+  searchTickets(query: string): void {
+    this.ticketsService.searchTickets(query).subscribe(
+      (data: any[]) => {
+        this.tickets = data;
+        this.filteredTickets = data;
+        this.highlightMatchingTicket(query);
+      },
+      (error: any) => {
+        console.error('Error fetching tickets:', error);
+      }
+    );
+  }
+
+  highlightMatchingTicket(query: string): void {
+    this.filteredTickets.forEach(ticket => {
+      ticket.highlighted = ticket.ownerID.toLowerCase().includes(query.toLowerCase());
+    });
   }
 
   viewTicket(ticketId: number) {
-    console.log('View ticket with ID:', ticketId);
+    console.log('View ticket with ownerID:', ticketId);
+    this.router.navigate(['/update', ticketId]); // Redirect to update component with ticket ID
   }
 
   updateTicket(ticketId: number) {
-    console.log('Update ticket with ID:', ticketId);
+    console.log('Update ticket with ownerID:', ticketId);
+    this.router.navigate(['/update', ticketId]); // Redirect to update component with ticket ID
   }
 }
+
+  
+  
+  
+  
+  
+  
+//   updateTicket(ticketId: number) {
+//     // Perform navigation logic here
+//     console.log('Update ticket with ID:', ticketId);
+//     this.router.navigate(['/update', ticketId]); // Redirect to update component with ticket ID
+//   }
+// }

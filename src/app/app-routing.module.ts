@@ -7,6 +7,7 @@ import { SearchComponent } from './search/search.component';
 import { CreateComponent } from './create/create.component';
 import { TargetComponent } from './target/target.component';
 import { SuccessDialogComponent } from './success-dialog/success-dialog.component';
+import { OpenTicketsComponent } from './open-tickets/open-tickets.component';
 
 const routes: Routes = [
   { path: 'search-tickets', component: SearchTicketsComponent },
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'create', component:CreateComponent},
   {path:'search',component:SearchComponent},
   {path:'success-dialog',component:SuccessDialogComponent},
-  {path:'target',component:TargetComponent}
+  {path:'target',component:TargetComponent},
+  {path:'open-tickets',component:OpenTicketsComponent}
 ];
 
 @NgModule({

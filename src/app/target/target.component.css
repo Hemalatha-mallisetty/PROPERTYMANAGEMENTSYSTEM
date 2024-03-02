@@ -1,37 +1,90 @@
-.table-container {
-  margin: 5px auto;
-  /*margin-bottom: 200px;*/
-  width: 50%; /* Set a width for the container */
-  text-align: center;
-  justify-content: left;
 
+
+.container {
+  display: flex;
+  width: 100%; 
+  justify-content: center; 
+  align-items: center; 
 }
-th {
-  background-color: blueviolet; /* background color */
-  color: yellowgreen; /* text color */
-  font-weight: bold; /* make text bold */
-  padding: 8px; /* padding around content */
-  border: 1px solid #dddddd; /* border */
+
+.left-panel {
+  flex: 1;
+  padding: 20px;
+  background-color: #f2f2f2;
 }
-table {
-  width: 0%; /* or specify a specific width */
-  /*border-collapse: collapse; !* collapse borders into a single border *!*/
-  border: 1px solid #dddddd;
-  justify-content: right; /* border color and width */
+
+.main-content {
+  flex: 3;
+  padding: 20px;
 }
-td {
-  padding: 8px; /* padding around content */
-  border: 1px solid #dddddd; /* border */
+
+.table-container {
+  margin: 0 auto; 
+  width: 60%; 
 }
-tr:nth-child(even) {
-  background-color: greenyellow; /* background color for even rows */
+.table {
+  width: 100%; 
+  border-collapse: collapse;
+  color: black;
 }
-tr:nth-child(odd) {
-  background-color: darkgrey; /* background color for even rows */
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 1px solid #ddd;
 }
-tr:hover {
-  background-color: darkgreen; /* background color on hover */
+
+.table th {
+  background-color: #ffffff;
+  color: #333;
 }
-table {
+
+
+
+.btn {
+  padding: 5px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
   border: none;
+}
+
+.btn-secondary {
+  background-color: #197a36;
+  color: #fff;
+  border: none;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 0.8;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.search-container input[type="text"] {
+  padding: 6px;
+  width: 450px; 
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+.btn-dark{
+background-color: #39519a;
+padding: 6px;
+border-radius: 5px;
+font-size: 16px;
 }

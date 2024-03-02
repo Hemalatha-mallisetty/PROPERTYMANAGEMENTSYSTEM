@@ -39,20 +39,20 @@ export class CreateComponent implements OnInit {
 
   selectedFiles: FileList | null = null;
   uploadedFiles: UploadedFile[] = [];
-  
+
   constructor(private dialog: MatDialog, private route: ActivatedRoute) {}
 
   ngOnInit() {
     // Fetch owner data or set default values
     this.ownerData = {
-      ownerName: 'John Doe',
-      ownerId: 'ABC123',
-      propertyLocation: '123 Main Street',
-      createdBy: 'Jane Doe',
+      ownerName: '',
+      ownerId: '',
+      propertyLocation: '',
+      createdBy: '',
       createdDate: new Date(),
-      assignedTo: 'Bob Smith',
+      assignedTo: '',
       description: '',
-      status: 'New'
+      status: ''
     };
     this.route.params.subscribe(params => {
       const ticketId = +params['id']; // Access the ticket ID parameter from the URL

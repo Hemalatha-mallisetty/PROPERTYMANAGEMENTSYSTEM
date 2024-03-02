@@ -1,5 +1,5 @@
 
-<div class="right-side">
+<div class="right-side1">
   <p>Status:</p>
   <select [(ngModel)]="ownerData.status">
     <option value="New">New</option>
@@ -28,12 +28,12 @@
       <input type="text">{{ ownerData.assignedTo }}</p>
     </div>
   </div>
- 
+
   <form (submit)="onSubmit()" class="description">
     <label for="w3review">Description</label>
     <textarea rows="20" cols="200"></textarea>
   </form>
-  
+
   <form (submit)="onSubmit()" enctype="multipart/form-data" class="attach">
     <label for="fileInput"><h2>Attachments:</h2></label>
     <input type="file" id="fileInput" name="files" multiple>
