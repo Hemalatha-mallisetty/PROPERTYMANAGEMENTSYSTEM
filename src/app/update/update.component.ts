@@ -22,7 +22,7 @@ interface UploadedFile {
 
 @Component({
   selector: 'app-update',
-  templateUrl: './update.component.html',
+  templateUrl:'./update.component.html',
   styleUrls: ['./update.component.css']
 })
 export class UpdateComponent implements OnInit {
@@ -39,23 +39,23 @@ export class UpdateComponent implements OnInit {
 
   selectedFiles: FileList | null = null;
   uploadedFiles: UploadedFile[] = [];
-  
+
   constructor(private dialog: MatDialog, private route: ActivatedRoute) {}
 
   ngOnInit() {
     // Fetch owner data or set default values
     this.ownerData = {
-      ownerName: '',
-      ownerId: '',
-      propertyLocation: '',
-      createdBy: '',
+      ownerName: 'John Doe',
+      ownerId: 'ABC123',
+      propertyLocation: '123 Main Street',
+      createdBy: 'Jane Doe',
       createdDate: new Date(),
-      assignedTo: '',
+      assignedTo: 'Bob Smith',
       description: '',
-      status: ''
+      status: 'New'
     };
     this.route.params.subscribe(params => {
-      const ticketId = +params['ticketId']; // Access the ticket ID parameter from the URL
+      const ticketId = +params['id']; // Access the ticket ID parameter from the URL
       console.log('Ticket ID:', ticketId);
       // Fetch ticket details or perform actions based on ticket ID
     });
@@ -63,9 +63,30 @@ export class UpdateComponent implements OnInit {
 
   onFileSelected(event: Event): void {
     this.selectedFiles = (event.target as HTMLInputElement)?.files;
+    console.log('Selected files:', this.selectedFiles);
   }
 
+
   onSubmit() {
+    // Check if any file is selected
+    if (!this.selectedFiles || this.selectedFiles.length === 0) {
+      alert('* Please select atleast one file');
+      return; // Prevent further execution
+    }
+
+    // Check for empty fields and display error messages
+    if (
+      !this.ownerData.createdBy ||
+      !this.ownerData.ownerName ||
+      !this.ownerData.ownerId ||
+      !this.ownerData.propertyLocation ||
+      !this.ownerData.assignedTo ||
+      !this.ownerData.description
+    ) {
+      alert('All fields are mandatory');
+      return; // Prevent further execution
+    }
+
     const formData = new FormData();
     Object.entries(this.ownerData).forEach(([key, value]) => {
       formData.append(key, value);

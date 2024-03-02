@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -32,7 +33,8 @@ import { OpenTicketsComponent } from './open-tickets/open-tickets.component'; //
     AppRoutingModule,
     HttpClientModule,
     MatDialogModule,
-    FormsModule // Add FormsModule to the imports array
+    FormsModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent],
